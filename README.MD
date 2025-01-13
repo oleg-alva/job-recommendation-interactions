@@ -28,7 +28,7 @@ project_name/
    - Update `profile` in `dbt_project.yml`
    - Update the models config section in `dbt_project.yml` to match your project name
 3. Update templated files:
-   - Search for and replace `project_name` in all files #TODO reimplement with Jinja? 
+   - Search for and replace `project_name` in all files 
    - Modify `models/schema.yml` with your model configurations
    - Review and update any `.sql` files in the `models/` directory
    - Update test cases in `tests/` directory 
