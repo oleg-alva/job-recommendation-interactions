@@ -1,0 +1,17 @@
+
+version: 2
+
+models:
+
+  - name: metric_name
+    description: "Metric description"
+    config:
+      contract:
+        enforced: true
+    columns:
+
+      - name: column_name
+        description: "Metric description"
+        data_type: "string"
+        constraints:
+          - type: not_null

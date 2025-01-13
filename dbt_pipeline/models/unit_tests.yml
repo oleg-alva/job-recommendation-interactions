@@ -1,0 +1,5 @@
+- unit_tests:
+  - name: unit_test_name
+    tests:
+      - not_null:
+          column_name: column_name

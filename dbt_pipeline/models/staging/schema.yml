@@ -1,0 +1,19 @@
+version: 2
+
+models:
+
+  - name: staging_table_name
+    description: "Staging table description"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: column_name
+        description: "Column description"
+        data_type: string
+        constraints:
+          - type: not_null
+          - type: primary_key
+            warn_unenforced: false
+        data_tests:
+          - unique

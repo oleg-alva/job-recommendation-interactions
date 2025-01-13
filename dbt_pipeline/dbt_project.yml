@@ -1,0 +1,29 @@
+name: 'project_name'  # TODO: Change this to your project name
+version: '1.0.0'
+
+profile: 'project_name' # TODO: Change this to your project name
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+vars:
+  "dbt_date:time_zone": "UTC"
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+models:
+  project_name:  # TODO: Change this to your project name
+    core:
+      +materialized: table
+    metrics:
+      +materialized: table
+    staging:
+      +materialized: table

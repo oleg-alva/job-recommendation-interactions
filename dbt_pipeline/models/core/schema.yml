@@ -1,0 +1,21 @@
+
+version: 2
+
+models:
+
+  - name: fact_table_name
+    description: "Fact table in star schema, representing table_name"
+    config:
+      contract:
+        enforced: true
+    columns:
+
+      - name: column_name
+        description: "The primary key for this table (hash of column_name and activated_date)"
+        data_type: string
+        constraints:
+          - type: not_null 
+          - type: primary_key # Not enforced in BigQuery
+            warn_unenforced: false
+        data_tests:
+          - unique
