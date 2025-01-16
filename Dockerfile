@@ -8,12 +8,12 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy application code 
-ADD dbt_pipeline dbt_pipeline 
+ADD job_recommendation_interactions job_recommendation_interactions 
 ADD terraform terraform
 
-# Include necessary files for dbt and GCP - TODO: Change this to your project name
+# Include necessary files for dbt and GCP
 COPY profiles.yml .
-# COPY google-service-account-<dbt-pipeline>-runtime.json . 
+COPY google-service-account-job-rec-interactions-runtime.json . 
 
 # Copy run script and make executable
 COPY run.sh .

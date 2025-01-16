@@ -7,7 +7,7 @@ variable "gcp_project" {
 variable "project_name" {
     description = "The name of the project/application"
     type        = string
-    default     = "dbt_pipeline" # TODO: Change this to your project name
+    default     = "job-recommendation-interactions"
 }
 
 variable "gcs_region" {
@@ -26,5 +26,5 @@ variable "gcs_location" {
 variable "image_location" {
     description = "Google Artifact Registry Image Location"
     type = string
-    default = "europe-docker.pkg.dev/alva-analytics/dbt_pipeline/dbt_pipeline" # TODO: Change this to your project name
+    default = "europe-docker.pkg.dev/alva-analytics/job-recommendation-interactions/job-recommendation-interactions"
 }

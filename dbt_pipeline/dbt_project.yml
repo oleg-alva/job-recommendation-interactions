@@ -1,7 +1,7 @@
-name: 'project_name'  # TODO: Change this to your project name
+name: 'job_recommendation_interactions'
 version: '1.0.0'
 
-profile: 'project_name' # TODO: Change this to your project name
+profile: 'job_recommendation_interactions'
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -20,7 +20,7 @@ vars:
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 models:
-  project_name:  # TODO: Change this to your project name
+  job_recommendation_interactions:
     core:
       +materialized: table
     metrics:

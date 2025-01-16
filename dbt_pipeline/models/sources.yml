@@ -1,13 +1,24 @@
 version: 2
 
 sources:
-
-  - name: "contract_batch"
+  - name: alva_app_production
     database: alva-backend
-    schema: organization_contract
-    freshness:
-      warn_after: { count: 2, period: hour }
-      error_after: { count: 4, period: hour }
+    description: "Production database for Alva app"
     tables:
-      - name: younium_account
-      - name: younium_subscription
+      - name: job_recommendation_expanded
+        description: "Expanded job recommendations data"
+      - name: viewed_job_recommendations
+        description: "User viewed job recommendations"
+
+  - name: recommendations_events_production
+    database: alva-recommendations
+    description: "Production database for recommendation events"
+    tables:
+      - name: user_relevance_information_latest_completed
+        description: "Latest completed user relevance information"
+      - name: job_recommendation_status_changed
+        description: "Job recommendation status change events"
+      - name: user_relevance_information_updated
+        description: "User relevance information update events"
+      - name: job_recommendation_created
+        description: "New job recommendation creation events" 

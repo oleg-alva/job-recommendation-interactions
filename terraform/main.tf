@@ -11,7 +11,9 @@ locals {
     ]
 
     datasets = [
-        # TODO: Add your datasets here
+        "alva-backend.job_recommendation_expanded",
+        "alva-recommendations.user_relevance_information_latest_completed",
+        "alva-recommendations.job_recommendation_status_changed"
     ]
 
     env_vars = {

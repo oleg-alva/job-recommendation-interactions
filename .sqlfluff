@@ -3,8 +3,8 @@ dialect = bigquery
 templater = dbt
 
 [sqlfluff:templater:dbt]
-project_dir = dbt_pipeline # TODO: Change this to your project name
-profiles_dir = dbt_pipeline # TODO: Change this to your project name
+project_dir = job_recommendation_interactions
+profiles_dir = job_recommendation_interactions
 target = dev
 
 [sqlfluff:templater:jinja]

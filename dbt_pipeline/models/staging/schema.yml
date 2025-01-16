@@ -1,19 +1,144 @@
 version: 2
 
 models:
-
-  - name: staging_table_name
-    description: "Staging table description"
+  - name: staging__candidate_data
+    description: "Staging table for candidate profile and preferences data"
     config:
       contract:
         enforced: true
     columns:
-      - name: column_name
-        description: "Column description"
+      - name: user_id
+        description: "Unique identifier for the user"
+        data_type: integer
+        constraints:
+          - type: not_null
+          - type: primary_key
+      - name: id
+        description: "Record identifier"
+        data_type: string
+      - name: updated_at
+        description: "Timestamp when the record was last updated"
+        data_type: timestamp
+      - name: preferred_job_family
+        description: "User's preferred job family"
+        data_type: string
+      - name: interested_in_leadership_positions
+        description: "Indicates if user is interested in leadership roles"
+        data_type: boolean
+      - name: linkedin_profile_url
+        description: "URL to user's LinkedIn profile"
+        data_type: string
+      - name: preferred_company_types
+        description: "Array of preferred company types"
+        data_type: array<string>
+      - name: preferred_specialties
+        description: "Array of preferred job specialties"
+        data_type: array<string>
+      - name: preferred_industries
+        description: "Array of preferred industries"
+        data_type: array<string>
+      - name: preferred_cities
+        description: "Array of preferred cities"
+        data_type: array<string>
+      - name: preferred_work_locations
+        description: "Array of preferred work locations"
+        data_type: array<string>
+      - name: spoken_languages
+        description: "Array of languages spoken by the user"
+        data_type: array<string>
+      - name: user_experiences
+        description: "Array of user's work experiences"
+        data_type: array<struct>
+      - name: has_experience
+        description: "Boolean indicating if user has any work experience"
+        data_type: boolean
+
+  - name: staging__recommendation_made
+    description: "Staging table for job recommendations when they are created"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: id
+        description: "Unique identifier for the recommendation"
         data_type: string
         constraints:
           - type: not_null
           - type: primary_key
-            warn_unenforced: false
-        data_tests:
-          - unique
+      - name: created_at
+        description: "Timestamp when the recommendation was created"
+        data_type: timestamp
+      - name: user_id
+        description: "User identifier"
+        data_type: string
+      - name: job_position_id
+        description: "Job position identifier"
+        data_type: string
+      - name: status
+        description: "Status of the recommendation"
+        data_type: string
+
+  - name: staging__recommendation_expanded_event
+    description: "Staging table for job recommendation expansion events"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: received_at
+        description: "Timestamp when the event was received"
+        data_type: timestamp
+      - name: day_received
+        description: "Date when the event was received"
+        data_type: date
+      - name: user_id
+        description: "User identifier"
+        data_type: integer
+      - name: job_position_id
+        description: "Job position identifier"
+        data_type: integer
+      - name: job_recommendation_id
+        description: "Unique identifier for the recommendation"
+        data_type: string
+      - name: status
+        description: "Status of the recommendation"
+        data_type: string
+      - name: has_experiences
+        description: "Indicates if the user has any work experiences"
+        data_type: boolean
+
+  - name: staging__recommendation_seen_event
+    description: "Staging table for job recommendation view events"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: received_at
+        description: "Timestamp when the event was received"
+        data_type: timestamp
+      - name: day_received
+        description: "Date when the event was received"
+        data_type: date
+      - name: user_id
+        description: "User identifier"
+        data_type: integer
+      - name: job_position_id
+        description: "Job position identifier"
+        data_type: integer
+      - name: recommendation_id
+        description: "Unique identifier for the recommendation"
+        data_type: string
+      - name: status
+        description: "Status of the recommendation"
+        data_type: string
+      - name: time_shown
+        description: "Number of times this recommendation has been shown"
+        data_type: integer
+      - name: has_experiences
+        description: "Indicates if the user has any work experiences"
+        data_type: boolean
+      - name: row_num
+        description: "Row number for recommendations within same timestamp"
+        data_type: integer
+      - name: is_first_recommendation
+        description: "Indicates if this is the first recommendation in the batch"
+        data_type: boolean
